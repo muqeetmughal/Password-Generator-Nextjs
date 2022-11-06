@@ -1,6 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { generate, generateMultiple } from "generate-password"
 import { toast } from 'react-hot-toast';
+import { PasswordDetail } from '../interfaces/PasswordDetail';
+import { useRecoilState } from 'recoil';
+import { oldPasswordsAtom } from '../atoms/passwordsAtom';
 
 
 const PasswordGenerator = () => {
@@ -14,10 +17,15 @@ const PasswordGenerator = () => {
 
     const [password, setPassword] = useState<string>('')
 
+    const [oldPasswords, setOldPasswords] = useRecoilState(oldPasswordsAtom)
+
+
+
+
     const generatePassword = () => {
 
         try {
-            var _password = generate({ lowercase: lowercase, uppercase: uppercase, numbers: numbers, symbols: symbols, length: length, strict : true });
+            var _password = generate({ lowercase: lowercase, uppercase: uppercase, numbers: numbers, symbols: symbols, length: length, strict: true });
             setPassword(_password)
 
         } catch (err) {
@@ -31,7 +39,23 @@ const PasswordGenerator = () => {
 
     const handleCopy = () => {
         navigator.clipboard.writeText(password)
+
+    
+        setOldPasswords((_prev) => {
+            // console.log("Prev State is : ", [..._prev], "Current Password is : ", password)
+            if (!_prev.includes(password)) {
+
+                localStorage.setItem("oldPasswords", JSON.stringify([..._prev, password]))
+                return [..._prev, password]
+            } else {
+                return [..._prev]
+            }
+
+        })
+
         toast.success(`Password Copied to Clipboard`)
+
+        
     }
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         console.log(e.target.value)
@@ -39,6 +63,16 @@ const PasswordGenerator = () => {
     }
 
     useEffect(() => {
+        // let oldPasswords = localStorage.getItem("passwords")
+        // if (oldPasswords){
+        //     // setPrevPasswords()
+        //     oldPasswords = JSON.parse(oldPasswords)
+        //     setPrevPasswords(oldPasswords)
+        // }else{
+        //     oldPasswords = JSON.parse("[]")
+        //     setPrevPasswords(oldPasswords)
+        // }
+        // console.log(oldPasswords)
         generatePassword()
     }, [length, uppercase, lowercase, numbers, symbols])
 
@@ -46,22 +80,15 @@ const PasswordGenerator = () => {
 
 
 
+
     return (
         <>
-            <div>
                 <div className="card bg-base-100 shadow-xl">
                     <div className="card-body">
                         <h2 className="card-title">Generate Password</h2>
 
 
                         <div>
-                            {/* <div className="form-control">
-                                <label className="cursor-pointer label">
-                                    <span className="label-text">Number of Passwords ({number_of_passwords}):</span>
-                                    <input type="range" min="1" max="20" value={number_of_passwords} className="range" onChange={(event) => setNumberOfPasswords(Number(event.target.value))} name="number_of_passwords" />
-
-                                </label>
-                            </div> */}
 
 
                             <div className="form-control">
@@ -149,26 +176,8 @@ const PasswordGenerator = () => {
 
                     </div>
                 </div>
-                {/* <div className="card bg-base-100 shadow-xl">
-                    <div className="card-body">
-                        <h2 className="card-title">List of Generated Passwords</h2>
+                
 
-                        <ul>
-                            {list_of_passwords.map((password, index) => {
-                                return <li key={index}>{password}</li>
-                            })}
-                        </ul>
-
-
-
-
-
-
-
-                    </div>
-                </div> */}
-
-            </div>
 
 
 

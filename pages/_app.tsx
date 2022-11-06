@@ -5,31 +5,37 @@ import NextProgress from "next-progress";
 import { Toaster } from 'react-hot-toast';
 import { themeChange } from 'theme-change';
 import { useEffect } from 'react';
-
-
-
+import {
+  RecoilRoot,
+  atom,
+  selector,
+  useRecoilState,
+  useRecoilValue,
+} from 'recoil';
 
 export default function App({ Component, pageProps }: AppProps) {
 
-  
 
-  useEffect(()=>{
+
+  useEffect(() => {
     themeChange(false)
-  },[])
+  }, [])
 
   return (
 
 
     <>
-      <NextProgress delay={3000} options={{ showSpinner: true }} />
+
+
+      <NextProgress delay={300} options={{ showSpinner: true }} />
 
       <MainLayout>
-
-        <Component {...pageProps} />
-
+        <RecoilRoot>
+          <Component {...pageProps} />
+        </RecoilRoot>
 
         <Toaster
-          position="top-center"
+          position="bottom-center"
           reverseOrder={false}
         />
       </MainLayout>

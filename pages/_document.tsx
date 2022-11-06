@@ -5,9 +5,7 @@ export default function Document() {
     return (
         <Html lang="en">
             <Head>
-                <title>
-                    Free Password Generator Tool Online
-                </title>
+               
                 <link rel="icon" href="/images/favicon.ico" />
             </Head>
 
