@@ -11,7 +11,6 @@ const MainLayout: React.FC<Props> = (props) => {
         <>
             <TopNav />
             <ContentLayout>
-
                 {props.children}
             </ContentLayout>
         </>
