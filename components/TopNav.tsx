@@ -21,7 +21,7 @@ const TopNav: React.FC = () => {
                 </div>
 
                 <Link href={"/"} className="btn btn-ghost normal-case logo">
-                    FreePasswordGenerator.io
+                    PasswordGenerator
                 </Link>
 
             </div>
