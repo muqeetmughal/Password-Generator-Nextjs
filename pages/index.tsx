@@ -1,24 +1,27 @@
 import Head from "next/head"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useRecoilState } from "recoil"
 import { oldPasswordsAtom } from "../atoms/passwordsAtom"
+import Content from "../components/Content"
 import LastCopiedPasswords from "../components/LastCopiedPasswords"
 import PasswordGenerator from "../components/PasswordGenerator"
 
 const Home = () => {
 
-  const [oldPasswords, setOldPasswords] = useRecoilState(oldPasswordsAtom)
- 
+  const [_, setOldPasswords] = useRecoilState(oldPasswordsAtom)
+  const [showHistory, setShowHistory] = useState<boolean>(false)
 
-  useEffect(()=>{
-    const passwords_in_local : string | null = localStorage.getItem("oldPasswords")
+
+  useEffect(() => {
+    const passwords_in_local: string | null = localStorage.getItem("oldPasswords")
 
     const passwords = localStorage.getItem("oldPasswords") ? JSON.parse(passwords_in_local || "[]") : []
 
     setOldPasswords(passwords)
 
-    console.log(oldPasswords)
-  },[])
+  }, [])
+
+
   return (
     <>
 
@@ -31,11 +34,22 @@ const Home = () => {
 
       </Head>
 
+      <div className="w-full h-full sm:max-w-screen-sm sm:mx-auto">
+
+        <PasswordGenerator />
 
 
-      <PasswordGenerator />
 
-      <LastCopiedPasswords />
+
+        <LastCopiedPasswords />
+
+
+
+        <Content />
+      </div>
+
+
+
 
 
 
