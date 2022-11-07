@@ -1,4 +1,4 @@
 {
-    "LIGHT": "Weiß",
-    "DARK" : "dunke"
+    "light": "Weiß",
+    "dark" : "Dunke"
 }

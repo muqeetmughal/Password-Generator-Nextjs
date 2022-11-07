@@ -1,4 +1,14 @@
 {
-    "LIGHT": "light",
-    "DARK" : "dark"
+    "light": "Light",
+    "dark": "Dark",
+    "copy": "Copy",
+    "refresh": "Refresh",
+    "recent_passwords": "Recent Passwords",
+    "password_length": "Password Length",
+    "uppercase": "Uppercase",
+    "lowercase": "Lowercase",
+    "symbols": "Symbols",
+    "numbers": "Numbers",
+    "title": "Free Password Generator",
+    "content": "Hello this is content"
 }

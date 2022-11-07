@@ -42,7 +42,7 @@ const TopNav: React.FC = () => {
 
                 <select defaultValue={"light"} className='select select-ghost' data-choose-theme>
                     {themeValues.map((theme_m, i) => {
-                        return <option key={theme_m.toLowerCase()} value={theme_m}>{i18n.t(theme_m.toUpperCase())}</option>
+                        return <option key={theme_m.toLowerCase()} value={theme_m}>{i18n.t(theme_m)}</option>
                     })}
 
                 </select>

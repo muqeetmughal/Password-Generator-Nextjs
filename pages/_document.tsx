@@ -3,7 +3,7 @@ import { useState } from 'react'
 
 export default function Document() {
     return (
-        <Html lang="en">
+        <Html>
             <Head>
 
                 <link rel="icon" href="/images/favicon.ico" />
