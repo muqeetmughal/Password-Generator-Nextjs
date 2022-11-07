@@ -5,6 +5,8 @@ import NextProgress from "next-progress";
 import { Toaster } from 'react-hot-toast';
 import { themeChange } from 'theme-change';
 import { useEffect } from 'react';
+import { GoogleAnalytics } from "nextjs-google-analytics";
+
 import {
   RecoilRoot,
   atom,
@@ -31,6 +33,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
       <MainLayout>
         <RecoilRoot>
+          <GoogleAnalytics trackPageViews gaMeasurementId='G-TWXH7NP8WC' />
           <Component {...pageProps} />
         </RecoilRoot>
 
