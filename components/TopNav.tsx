@@ -6,7 +6,7 @@ import NavMenu from './NavMenu'
 const themeValues = [
     'light',
     'dark'
-]
+] 
 
 
 const TopNav: React.FC = () => {
@@ -22,7 +22,7 @@ const TopNav: React.FC = () => {
                 </div>
 
                 <Link href={"/"} className="btn btn-ghost normal-case logo">
-                    PasswordGenerator
+                   {i18n.t("title")}
                 </Link>
 
             </div>

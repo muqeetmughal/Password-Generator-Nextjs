@@ -5,6 +5,7 @@ import { PasswordDetail } from '../interfaces/PasswordDetail';
 import { useRecoilState } from 'recoil';
 import { oldPasswordsAtom } from '../atoms/passwordsAtom';
 import { CONTEXT } from '../constants/variables';
+import i18n from '../i18';
 
 
 const PasswordGenerator = () => {
@@ -31,7 +32,7 @@ const PasswordGenerator = () => {
 
         } catch (err) {
             // console.log("An error occcured", err)
-            toast.error('Atleast one type of password must be true')
+            toast.error(i18n.t("error_msg_one_must_be_true") || "")
             setSymbols(true)
         }
 
@@ -54,7 +55,7 @@ const PasswordGenerator = () => {
 
         })
 
-        toast.success(`Password Copied to Clipboard`)
+        toast.success(i18n.t("copy_success_msg")||"")
 
 
     }
@@ -90,7 +91,7 @@ const PasswordGenerator = () => {
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M15.666 3.888A2.25 2.25 0 0013.5 2.25h-3c-1.03 0-1.9.693-2.166 1.638m7.332 0c.055.194.084.4.084.612v0a.75.75 0 01-.75.75H9a.75.75 0 01-.75-.75v0c0-.212.03-.418.084-.612m7.332 0c.646.049 1.288.11 1.927.184 1.1.128 1.907 1.077 1.907 2.185V19.5a2.25 2.25 0 01-2.25 2.25H6.75A2.25 2.25 0 014.5 19.5V6.257c0-1.108.806-2.057 1.907-2.185a48.208 48.208 0 011.927-.184" />
                                     </svg>
                                     <div className='hidden sm:block'>
-                                        Copy
+                                        {i18n.t("copy")}
                                     </div>
                                 </button>
                                 <button className="btn btn-info gap-2" onClick={() => generatePassword()}>
@@ -99,7 +100,7 @@ const PasswordGenerator = () => {
                                     </svg>
 
                                     <div className='hidden sm:block'>
-                                        Refresh
+                                        {i18n.t("refresh")}
                                     </div>
                                 </button>
 
@@ -109,7 +110,7 @@ const PasswordGenerator = () => {
 
                         <div className="form-control">
                             <label className="cursor-pointer label">
-                                <span className="label-text">Password Length ({length}):</span>
+                                <span className="label-text">{i18n.t("password_length")} ({length}):</span>
                                 <input type="range" min="4" max="50" value={length} className="range" onChange={(event) => setLength(Number(event.target.value))} name="length" />
 
                             </label>
@@ -122,7 +123,7 @@ const PasswordGenerator = () => {
                     <div>
                         <div className="form-control">
                             <label className="cursor-pointer label">
-                                <span className="label-text">Uppercase</span>
+                                <span className="label-text">{i18n.t("uppercase")}</span>
 
                                 <input type="checkbox" checked={uppercase} className="toggle" onChange={(_) => setUppercase(!uppercase)} name="uppercase" />
                             </label>
@@ -130,7 +131,7 @@ const PasswordGenerator = () => {
 
                         <div className="form-control">
                             <label className="cursor-pointer label">
-                                <span className="label-text">Lowercase</span>
+                                <span className="label-text">{i18n.t("lowercase")}</span>
 
                                 <input type="checkbox" checked={lowercase} className="toggle" onChange={(_) => setLowercase(!lowercase)} name="lowercase" />
                             </label>
@@ -138,7 +139,7 @@ const PasswordGenerator = () => {
 
                         <div className="form-control">
                             <label className="cursor-pointer label">
-                                <span className="label-text">Numbers</span>
+                                <span className="label-text">{i18n.t("numbers")}</span>
                                 <input type="checkbox" checked={numbers} className="toggle" onChange={(_) => setNumbers(!numbers)} name="numbers" />
 
                             </label>
@@ -146,7 +147,7 @@ const PasswordGenerator = () => {
 
                         <div className="form-control">
                             <label className="cursor-pointer label">
-                                <span className="label-text">Symbols</span>
+                                <span className="label-text">{i18n.t("symbols")}</span>
                                 <input type="checkbox" checked={symbols} className="toggle" onChange={(_) => setSymbols(!symbols)} name="symbols" />
 
                             </label>

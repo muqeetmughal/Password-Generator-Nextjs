@@ -10,5 +10,8 @@
     "symbols": "Symbols",
     "numbers": "Numbers",
     "title": "Free Password Generator",
-    "content": "Hello this is content"
+    "content": "Hello this is content",
+    "copy_success_msg" : "Password Copied",
+    "password_delete_msg" : "Password Deleted",
+    "error_msg_one_must_be_true" : "Atleast one type of password must be true"
 }

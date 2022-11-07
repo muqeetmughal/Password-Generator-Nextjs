@@ -39,9 +39,6 @@ const Home = () => {
 
         <PasswordGenerator />
 
-        {i18n.t('test')}
-
-
 
 
         <LastCopiedPasswords />

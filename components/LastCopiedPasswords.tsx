@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { toast } from 'react-hot-toast'
 import { useRecoilState } from 'recoil'
 import { oldPasswordsAtom } from '../atoms/passwordsAtom'
+import i18n from '../i18'
 
 const LastCopiedPasswords = () => {
 
@@ -16,7 +17,7 @@ const LastCopiedPasswords = () => {
         navigator.clipboard.writeText(password)
 
 
-        toast.success(`${password} Copied to Clipboard`)
+        toast.success(i18n.t("copy_success_msg")||"")
 
     }
     const handleDelete = (password_to_delete: string) => {
@@ -32,7 +33,7 @@ const LastCopiedPasswords = () => {
         })
 
 
-        toast.success(`Password Deleted`)
+        toast.success(i18n.t("password_delete_msg")||"")
 
     }
 
@@ -44,7 +45,7 @@ const LastCopiedPasswords = () => {
                 ?
                 <div className="flex items-center justify-center">
 
-                    <label htmlFor="passwordHIstoryModal" className="btn">Recent Passwords</label>
+                    <label htmlFor="passwordHIstoryModal" className="btn">{i18n.t("recent_passwords")}</label>
 
                     {/* Put this part before </body> tag */}
                     <input type="checkbox" id="passwordHIstoryModal" className="modal-toggle" />
@@ -52,7 +53,7 @@ const LastCopiedPasswords = () => {
                         <label className="modal-box relative" htmlFor="">
                             <div className="card bg-base-100 shadow-xl">
                                 <div className="card-body">
-                                    <h2 className="card-title">Recent Passwords</h2>
+                                    <h2 className="card-title">{i18n.t("recent_passwords")}</h2>
 
                                     <ul>
                                         {oldPasswords.map((password, index) => {
