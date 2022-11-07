@@ -1,11 +1,12 @@
 import Link from 'next/link'
 import React from 'react'
+import i18n from '../i18'
 import NavMenu from './NavMenu'
 
 const themeValues = [
     'light',
     'dark'
-  ]
+]
 
 
 const TopNav: React.FC = () => {
@@ -39,9 +40,9 @@ const TopNav: React.FC = () => {
 
                 </label> */}
 
-               <select defaultValue={"light"} className='select select-ghost' data-choose-theme>
+                <select defaultValue={"light"} className='select select-ghost' data-choose-theme>
                     {themeValues.map((theme_m, i) => {
-                        return <option key={theme_m.toLowerCase()} value={theme_m}>{theme_m.toUpperCase()}</option>
+                        return <option key={theme_m.toLowerCase()} value={theme_m}>{i18n.t(theme_m.toUpperCase())}</option>
                     })}
 
                 </select>

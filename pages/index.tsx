@@ -5,6 +5,7 @@ import { oldPasswordsAtom } from "../atoms/passwordsAtom"
 import Content from "../components/Content"
 import LastCopiedPasswords from "../components/LastCopiedPasswords"
 import PasswordGenerator from "../components/PasswordGenerator"
+import i18n from '../i18'
 
 const Home = () => {
 
@@ -37,6 +38,8 @@ const Home = () => {
       <div className="w-full h-full sm:max-w-screen-sm sm:mx-auto">
 
         <PasswordGenerator />
+
+        {i18n.t('test')}
 
 
 

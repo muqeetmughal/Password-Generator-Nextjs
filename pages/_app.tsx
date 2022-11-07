@@ -14,10 +14,15 @@ import {
   useRecoilState,
   useRecoilValue,
 } from 'recoil';
+import { useRouter } from 'next/router';
+import i18n from '../i18';
 
 export default function App({ Component, pageProps }: AppProps) {
 
-
+  const router = useRouter()
+  if (router.locale) {
+    i18n.changeLanguage(router.locale)
+  }
 
   useEffect(() => {
     themeChange(false)
