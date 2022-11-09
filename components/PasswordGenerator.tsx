@@ -11,7 +11,7 @@ import i18n from '../i18';
 const PasswordGenerator = () => {
 
 
-    const [length, setLength] = useState<number>(16)
+    const [length, setLength] = useState<number>(8)
     const [uppercase, setUppercase] = useState<boolean>(true)
     const [lowercase, setLowercase] = useState<boolean>(true)
     const [symbols, setSymbols] = useState<boolean>(true)
