@@ -29,8 +29,21 @@ const Home = () => {
       <Head>
 
         <title>
-          Free Password Generator Tool Online
+          Free Password Generator | Online Random Password Generator Website
         </title>
+
+        <link rel="canonical" href="https://freepasswordgenerator.app/" />
+        <meta name="title" content="Free Password Generator | Online Random Password Generator Website" />
+        <meta name="description" content="Free Password Generator is an online tool to generate random passwords of your choice in numbers, uppercase, lowercase, and symbol combinations." />
+        <meta name="keywords" content="free password generator, password generator, strong password generator, secure password generator, password generator online, pwd generator, " />
+        <meta name="robots" content="index, follow, max-image-preview:large" />
+        <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="language" content="English" />
+        <meta name="revisit-after" content="1 days" />
+        <meta name="author" content="Muqeet Mughal"></meta>
+
+
+
 
 
       </Head>
