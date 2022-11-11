@@ -1,4 +1,5 @@
 import React from 'react'
+import Footer from '../components/Footer';
 import TopNav from '../components/TopNav'
 import ContentLayout from './ContentLayout';
 
@@ -10,9 +11,10 @@ const MainLayout: React.FC<Props> = (props) => {
     return (
         <>
             <TopNav />
-            <ContentLayout>
-                {props.children}
-            </ContentLayout>
+                <ContentLayout>
+                    {props.children}
+                </ContentLayout>
+            <Footer />
         </>
     )
 }

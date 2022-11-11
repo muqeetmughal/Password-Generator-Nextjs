@@ -43,7 +43,7 @@ const TopNav: React.FC = () => {
 
                 </label> */}
 
-                {locales?.map((l, i) => {
+                {/* {locales?.map((l, i) => {
                     return (
                         <span key={i} className={l === locale ? "styles.selected" : ''}>
                             <Link href={asPath} locale={l}>
@@ -51,7 +51,8 @@ const TopNav: React.FC = () => {
                             </Link>
                         </span>
                     );
-                })}
+                })} */}
+
 
                 <select defaultValue={"light"} className='select select-ghost' data-choose-theme>
                     {themeValues.map((theme_m, i) => {
