@@ -1,20 +1,30 @@
 import React from 'react'
 import Link from 'next/link'
-const navMenu = [
+
+type NavMenuItem = {
+    name: string;
+    link: string;
+    children?: NavMenuItem[];
+};
+
+type NavMenu = NavMenuItem[];
+const navMenu: NavMenu = [
 
 
     {
         name: "Home",
         link: "/",
     }, {
-        name: "WebTools",
-        link: "/webtools",
-        children: [
-            {
-                name: "Password Generator Tool",
-                link: "/password-generator",
-            }
-        ]
+        name: "Contact",
+        link: "/contact"
+    },
+    {
+        name: "Privacy Policy",
+        link: "/privacy-policy"
+    },
+    {
+        name: "Terms of Service",
+        link: "/terms-of-service"
     }
 
 ]
@@ -71,3 +81,4 @@ const NavMenu = (props: Props) => {
 }
 
 export default NavMenu
+
