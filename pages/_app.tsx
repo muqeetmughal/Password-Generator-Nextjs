@@ -16,8 +16,6 @@ import {
 } from 'recoil';
 import { useRouter } from 'next/router';
 import i18n from '../i18';
-import Script from 'next/script';
-import Adsense from "@eisberg-labs/next-google-adsense";
 
 export default function App({ Component, pageProps }: AppProps) {
 
@@ -40,7 +38,6 @@ export default function App({ Component, pageProps }: AppProps) {
 
       <MainLayout>
         <RecoilRoot>
-        <Adsense client_id="ca-pub-4637568329272499"/>
           <GoogleAnalytics trackPageViews gaMeasurementId='G-1L2TT5D8MB' />
           <Component {...pageProps} />
         </RecoilRoot>
