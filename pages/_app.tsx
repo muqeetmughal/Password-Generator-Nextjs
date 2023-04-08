@@ -39,11 +39,6 @@ export default function App({ Component, pageProps }: AppProps) {
 
       <MainLayout>
         <RecoilRoot>
-          <Script id="Adsense-id" data-ad-client="ca-pub-4637568329272499"
-            async strategy="afterInteractive"
-            onError={(e) => { console.error('Script failed to load', e) }}
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-          />
           <GoogleAnalytics trackPageViews gaMeasurementId='G-1L2TT5D8MB' />
           <Component {...pageProps} />
         </RecoilRoot>
